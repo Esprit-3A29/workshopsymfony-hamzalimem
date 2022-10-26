@@ -21,7 +21,7 @@ class ClubRepository extends ServiceEntityRepository
         parent::__construct($registry, Club::class);
     }
 
-    public function add(Club $entity, bool $flush = false): void
+    public function save(Club $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 

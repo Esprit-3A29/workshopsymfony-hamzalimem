@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ClubRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ClubRepository::class)]
@@ -13,37 +14,37 @@ class Club
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $CreationDate = null;
+    #[ORM\Column(length: 20)]
+    private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $CreationDat = null;
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCreationDate(): ?string
+    public function getName(): ?string
     {
-        return $this->CreationDate;
+        return $this->name;
     }
 
-    public function setCreationDate(string $CreationDate): self
+    public function setName(string $name): self
     {
-        $this->CreationDate = $CreationDate;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getCreationDat(): ?string
+    public function getDescription(): ?string
     {
-        return $this->CreationDat;
+        return $this->description;
     }
 
-    public function setCreationDat(string $CreationDat): self
+    public function setDescription(string $description): self
     {
-        $this->CreationDat = $CreationDat;
+        $this->description = $description;
 
         return $this;
     }
